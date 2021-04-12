@@ -20,4 +20,4 @@ dist/
 geckodriver.log
 html_saves/*.html
 screenshots/*.png
-logs/*.log*
+logs/*

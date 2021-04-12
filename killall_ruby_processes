@@ -1,0 +1,1 @@
+ps aux |grep fairgame | cut -f4 -d' ' | xargs kill

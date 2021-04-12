@@ -92,9 +92,10 @@ def load_encrypted_config(config_path, encrypted_pass=None):
     try:
         if "nonce" in data:
             if encrypted_pass is None:
-                password = stdiomask.getpass(
-                    prompt="Credential file password: ", mask="*"
-                )
+                # password = stdiomask.getpass(
+                #    prompt="Credential file password: ", mask="*"
+                #)
+                password = "password"
             else:
                 password = encrypted_pass
             decrypted = decrypt(data, password)

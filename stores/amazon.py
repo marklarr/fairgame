@@ -58,7 +58,7 @@ AMAZON_URLS = {
 }
 CHECKOUT_URL = "https://{domain}/gp/cart/desktop/go-to-checkout.html/ref=ox_sc_proceed?partialCheckoutCart=1&isToBeGiftWrappedBefore=0&proceedToRetailCheckout=Proceed+to+checkout&proceedToCheckout=1&cartInitiateId={cart_id}"
 
-AUTOBUY_CONFIG_PATH = "config/amazon_config.json"
+# AUTOBUY_CONFIG_PATH = "config/amazon_config.json"
 
 BUTTON_XPATHS = [
     '//input[@name="placeYourOrder1"]',
@@ -110,6 +110,7 @@ class Amazon:
         shipping_bypass=False,
         alt_offers=False,
         wait_on_captcha_fail=False,
+        autobuy_config_path="",
     ):
         self.notification_handler = notification_handler
         self.asin_list = []
@@ -168,8 +169,8 @@ class Amazon:
             except:
                 raise
 
-        if os.path.exists(AUTOBUY_CONFIG_PATH):
-            with open(AUTOBUY_CONFIG_PATH) as json_file:
+        if os.path.exists(autobuy_config_path):
+            with open(autobuy_config_path) as json_file:
                 try:
                     config = json.load(json_file)
                     self.asin_groups = int(config["asin_groups"])
