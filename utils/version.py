@@ -32,6 +32,8 @@ version = Version(__VERSION)
 
 
 def is_latest():
+    # skip this since it is getting rate limited
+    return True
     remote_version = get_latest_version()
 
     if version < remote_version:

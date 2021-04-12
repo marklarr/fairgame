@@ -1,1 +1,1 @@
-ps aux |grep fairgame | cut -f4 -d' ' | xargs kill
+ps aux |grep fairgame |grep -v grep | grep -Eo 'marklarr\s+([0-9]+)' | grep -Eo '[0-9]+' | xargs kill
