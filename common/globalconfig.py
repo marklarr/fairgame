@@ -76,7 +76,7 @@ class GlobalConfig:
         if not self.profile_path:
             self.profile_path = os.path.join(
                 os.path.dirname(os.path.abspath("__file__")),
-                self.global_config["FAIRGAME"].get("profile_name", ".profile-amz"),
+                ".profile-amz-" + str(uuid.uuid1()),
             )
         return self.profile_path
 

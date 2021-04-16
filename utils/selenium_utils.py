@@ -28,7 +28,6 @@ from urllib3.connectionpool import log as urllib_logger
 from logging import WARNING as logging_WARNING
 
 options = Options()
-options.add_argument("--incognito")
 options.add_experimental_option(
     "excludeSwitches", ["enable-automation", "enable-logging"]
 )

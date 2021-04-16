@@ -10,6 +10,7 @@ Dir["config/autobuy_configs/*"].each_with_index do |config_path, i|
 
   chunk_size = ARGV[i].to_i
   puts "splitting #{config_path} into chunks of #{chunk_size}"
+  next if chunk_size == 0
   asin_lists = asin_list_1.each_slice(chunk_size).to_a
 
   asin_lists.each_with_index do |sub_asin_list, i|
@@ -18,3 +19,7 @@ Dir["config/autobuy_configs/*"].each_with_index do |config_path, i|
     File.write(config_path.gsub("autobuy_configs/", "autobuy_configs_generated/") + "-#{i}", sub_json.to_json)
   end
 end
+
+
+number_of_configs = `ls -al config/autobuy_configs_generated  | grep json | wc -l`.chomp
+puts "Number of configs: #{number_of_configs}"
