@@ -18,6 +18,7 @@
 #      https://github.com/Hari-Nagarajan/fairgame
 
 import os
+import uuid
 from config import Config as Cfg
 import stdiomask
 
